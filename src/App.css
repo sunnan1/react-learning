@@ -3,3 +3,10 @@
     font-weight: bold;
     color: red;
 }
+
+.goal-form {
+    padding: 10px;
+}
+.goal-form input {
+    padding: 5px;
+}
