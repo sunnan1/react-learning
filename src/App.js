@@ -1,7 +1,25 @@
 import React , {useState} from 'react';
 import  GoalList from "./components/Goals";
 import  NewGoal from "./components/NewGoal";
+import { BrowserRouter as Router , Route, Redirect, Switch } from 'react-router-dom';
+import Users from './shared/pages/Users';
+import NewPlaces from './places/pages/NewPlace';
 const App = () => {
+
+  return ( <Router>
+      <Switch>
+        <Route path="/" exact>
+            <Users />
+        </Route>
+        <Route path="/places/new" exact>
+            <NewPlaces />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
+    </Router>
+  );
+  
+
   const [goals, setGoals] = useState([
     { id : 1 , text : "This is 1st text"},
     { id : 2 , text : "This is 2st text"},
@@ -24,7 +42,7 @@ const App = () => {
         <NewGoal newGoal={addGoal} />
         <GoalList goals={goals} />
       </div>
-  );
+  ); 
 };
 
 export default App;
